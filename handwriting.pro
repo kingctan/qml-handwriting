@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = qml-handwriting
 CONFIG += qt
-QT += declarative
+QT += quick
 SOURCES += handwriting.cpp
 
 

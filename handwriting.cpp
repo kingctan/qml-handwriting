@@ -1,8 +1,8 @@
-#include <QApplication>
-#include <QDeclarativeView>
-#include <QDeclarativeEngine>
-#include <QDeclarativeContext>
-#include <QTextCodec>
+#include <QtGui/QGuiApplication>
+#include <QtQuick/QQuickView>
+#include <QtDeclarative/QDeclarativeEngine>
+#include <QtDeclarative/QDeclarativeContext>
+#include <QtCore/QTextCodec>
 #include <zinnia.h>
 
 class ApplicationData : public QObject
@@ -38,14 +38,14 @@ public:
 
 int main(int argc, char *argv[]) {
 
-    QApplication app(argc, argv);
-    QDeclarativeView view;
+    QGuiApplication app(argc, argv);
+    QQuickView view;
     ApplicationData data;
 
     data.recognizer = zinnia::Recognizer::create();
-    if (!data.recognizer->open("/usr/share/tegaki/models/zinnia/handwriting-zh_TW.model"))
+    if (!data.recognizer->open("/usr/share/tegaki/models/zinnia/handwriting-zh_CN.model"))
         qDebug("can't load model file");
-    else qDebug("model \"handwriting-zh_TW.model\" loaded");
+    else qDebug("model \"handwriting-zh_CN.model\" loaded");
 
     data.character = zinnia::Character::create();
     data.character->clear();
